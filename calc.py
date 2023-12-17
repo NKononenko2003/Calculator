@@ -97,7 +97,7 @@ def eval_expr(expr):
                 a = eval_expr(expr[:t-1])
                 b = eval_expr(expr[t+1:])
                 return a // b
-            else:
+            elif expr[t] == '/':
                 a = eval_expr(expr[:t])
                 b = eval_expr(expr[t+1:])
                 if is_int and a % b == 0:
