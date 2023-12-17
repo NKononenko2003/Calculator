@@ -35,14 +35,18 @@ def eval_expr(expr):
     
 # finding sqrt
 
+    # finding sqrt
+
     for t in range(n):
         if expr[t] == '√':
             if expr[t + 1] != '(':
                 i = t + 1
                 while i < n:
-                    if expr[i] not in numbers and expr[t] != '.':
+                    if expr[i] not in numbers and expr[i] != '.':
                         break
                     i += 1
+                if i == n:
+                    return eval_expr(expr[0:t] + str(eval_expr(expr[t+1:i]) ** 0.5))
                 return eval_expr(expr[0:t] + str(eval_expr(expr[t+1:i]) ** 0.5) + expr[i:])
             else:
                 count = 1
